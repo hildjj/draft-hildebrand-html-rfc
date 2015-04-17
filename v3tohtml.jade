@@ -1,5 +1,4 @@
-- var slug = require('slug')
-- function slg(txt) { return (txt==null) ? null : slug(txt).toLowerCase(); }
+- var crypto = require('crypto')
 - var v3 = require('./v3')
 - var dt = require('./dt')
 - var irefs={}
@@ -7,57 +6,66 @@
 mixin elem(e)
   - var a = $att(e, attributes)
   if a.id == null
-    - a.id = a.anchor || a.partNumber || a.figureNumber || a.sectionNumber || a.tableNumber
+    - a.id = a.anchor || a.pn
   - delete a.anchor
-  - delete a.partNumber
-  - delete a.figureNumber
-  - delete a.sectionNumber
-  - delete a.tableNumber
+  - delete a.pn
   #{e.name()}&attributes(a)
     +children(e)
     block
 
 mixin children(e, opts)
-  each c in e.childNodes()
-    case c.type()
-      when 'text'
-        if c.text().trim().length > 0
+  if (e)
+    each c in e.childNodes()
+      case c.type()
+        when 'text'
+          if c.text().trim().length > 0
+            = c.text()
+        when 'cdata'
+          //- CDATA doens't work in HTML5.  Escape.
           = c.text()
-      when 'cdata'
-        //- CDATA doens't work in HTML5.  Escape.
-        = c.text()
-      when 'comment'
-        != "<!--" + c.text() + "-->"
-      when 'element'
-        - var nm = c.name()
-        if jade_mixins[nm] != null
-          +#{nm}(c)
-        else if !v3.isIgnored(nm)
-          +elem(c, opts)
+        when 'comment'
+          != "<!--" + c.text() + "-->"
+        when 'element'
+          - var nm = c.name()
+          if jade_mixins[nm] != null
+            +#{nm}(c)
+          else if !v3.isIgnored(nm)
+            +elem(c, opts)
 
 mixin abstract(e)
-  #abstract
+  section#abstract
     h2
       a.self-ref(href='#abstract') Abstract
     +children(e)
 
 mixin artwork(e)
-  - var att = { id: $att(e, 'partNumber')}
+  - var classes = ['artwork']
   - var cl = $att(e, 'type')
-  - if (cl != null) { att['class'] = "art-" + cl; }
+  - if (cl != null) { classes.push("art-" + cl); }
+  - var id = $att(e,'anchor') || $att(e,'pn')
   if cl == 'svg'
-    .artwork&attributes(att)
+    div(id=id, class=classes)
       +children(e)
       if e.parent().name() != 'figure'
         +pilcrow(e)
   else
-    pre.artwork&attributes(att)
-      +children(e)
+    - var align = $att(e, 'align')
+    - if (align != null) { classes.push('align_' + align); }
+    div
+      pre(id=id, class=classes)
+        +children(e)
       if e.parent().name() != 'figure'
         +pilcrow(e)
 
+mixin ascii(e)
+  - var a = $att(e, "ascii")
+  if a
+    = " "
+    span.ascii= a
+    = " "
+
 mixin aside(e)
-  aside(id=$att(e, 'partNumber'))
+  aside(id=$att(e, 'pn'))
     +children(e)
     +pilcrow(e)
 
@@ -66,18 +74,18 @@ mixin back(e)
   if refs.length > 0
     - var snn = $('count(middle/section)') + 1
     - var sn = 's-' + snn
-    .section(id='n-references')
+    section(id='n-references')
       h2(id=sn)
         a.self-ref(href='#' + sn)= snn + "."
         = " "
         a.self-ref(href='#n-references') References
       each ref, i in refs
         - var rsn = sn + "." + (i+1)
-        .section(id=$('name/@slugifiedName', ref))
+        section(id=$('name/@slugifiedName', ref))
           h3(id=rsn)
             a.self-ref(href='#' + rsn)= snn + "." + (i+1) + "."
             = " "
-            a.self-ref(href='#' + $('name/@slugifiedName', ref))= $('name/text()', ref)
+            a.self-ref(href='#' + $('name/@slugifiedName', ref)): +children($('name', ref))
           dl.reference
             +children(ref)
   each adx in $$('back/section')
@@ -85,36 +93,47 @@ mixin back(e)
 
 mixin blockquote(e)
   - var c = $att(e, 'cite')
-  blockquote(id=$att(e, 'anchor')||$att(e, 'partNumber'), cite=c)
+  blockquote(id=$att(e, 'anchor')||$att(e, 'pn'), cite=c)
     +children(e)
     +pilcrow(e)
-    - var quoteFrom = $att(e, 'quoteFrom')
-    if quoteFrom
+    - var quotedFrom = $att(e, 'quotedFrom')
+    if quotedFrom
       cite
         = "\u2014 "
         if c
-          a(href=$att(e, 'cite'))= quoteFrom
+          a(href=$att(e, 'cite'))= quotedFrom
         else
-          = quoteFrom
+          = quotedFrom
 
 mixin bcp14(e)
   span.bcp14= e.text()
 
 mixin cref(e)
-  span.cref: +children(e)
+  span.cref(id=$att(e,'anchor'))
+    +children(e)
+    if $att(e, 'source')
+      = " "
+      span.cref-source= "\u2014" + $att(e,'source')
+
+mixin dl(e)
+  - var classes=[]
+  - if ($att(e,'spacing')=='compact') { classes.push('dlcompact'); }
+  - if ($att(e,'hanging')=='true') { classes.push('dlhanging'); } else { classes.push('dlparallel'); }
+  dl(class=classes): +children(e)
 
 mixin eref(e)
   a.eref(href=$att(e,'target'))= e.text() || $att(e,'target')
 
 mixin figure(e)
   +elem(e)
-    - var fn = $att(e, 'figureNumber')
+    - var fn = $att(e, 'pn')
     - var nm = $('name', e)
     figcaption
       a.self-ref(href="#"+fn) Figure #{fn.replace(/^f-/, '')}.
       if nm
         = " "
-        a.self-ref(href="#"+$att(nm, "slugifiedName"))= nm.text()
+        - var sn = $att(nm, "slugifiedName")
+        a.self-ref(href="#"+sn, id=sn): +children(nm)
 
 mixin identifiers(e)
   - var published = dt.isoDate($('date',e))
@@ -133,11 +152,14 @@ mixin identifiers(e)
     dd.authors
       each a in authors
         .author
-          span.initial= $att(a, "initials")
-          = " "
-          span.surname= $att(a, "surname")
+          span.fn
+            span.initial= $att(a, "initials")
+            = " "
+            span.surname= $att(a, "surname")
+            +ascii(a)
           = " ("
-          span.organization= $("organization/text()", a)
+          span.org= $("organization/text()", a)
+            +ascii($("organization", a))
           = ")"
 
 mixin iref(e)
@@ -151,26 +173,32 @@ mixin li(e)
   +elem(e)
     +pilcrow(e)
 
-mixin list(e)
-  p WARNING: list is deprecated
-  //- TODO: add list support
-
 mixin note(e)
   - var rm = ($att(e, 'removeInRFC')=="yes") ? "rfceditor-remove" : null
-  .note(id=$att(e, 'anchor') || $att(e,'sectionNumber'), class=rm)
+  section.note(id=$att(e, 'anchor') || $att(e,'pn'), class=rm)
     h2(id=$att(e, 'slugifiedName'))
-      a.self-ref(href='#' + $('name/@slugifiedName', e))= $("name/text()", e)
+      a.self-ref(href='#' + $('name/@slugifiedName', e)): +children($("name", e))
     +children(e)
 
 mixin ol(e)
-  - var cls = ($att(e,'spacing')=='compact')?'olcompact':null
-  //- TODO: support percent styles
-  ol(class=cls,start=$att(e,'start'),type=$att(e,'style'))
-    +children(e)
+  - var classes = []
+  - if ($att(e,'spacing')=='compact') { classes.push('olcompact'); }
+  - var style = $att(e,'style')
+  if style && (style.length > 1)
+    //- percent styles
+    - classes.push('olpercent')
+    - var start = parseInt($att(e,'start')) || 1
+    dl(class=classes)
+      for li,i in $$('li', e)
+        dt= v3.olStyledNum(style, start+i)
+        dd: +children(li)
+  else
+    ol(class=classes,start=$att(e,'start'),type=style)
+      +children(e)
 
 mixin pilcrow(e)
-  if !$('ancestor::table', e) && !$('*//@partNumber', e)
-    - var ref = $att(e, 'anchor') || $att(e, 'partNumber')
+  if !$('ancestor::table', e) && !$('*//@pn', e)
+    - var ref = $att(e, 'anchor') || $att(e, 'pn')
     = " "
     a.pilcrow(href='#'+ref) &para;
 
@@ -194,7 +222,7 @@ mixin reference(e)
     span.refdate= ", " + $('front/date/@month',e) + " " + $('front/date/@year',e) + "."
 
 mixin section(s)
-  - var sn = $att(s,'sectionNumber')
+  - var sn = $att(s,'pn')
   - var snn = sn.replace(/^s-/, '')
   - var depth = Math.min(sn.split('.').length + 1, 6)
   - var rm = ($att(s, 'removeInRFC')==="yes") ? "rfceditor-remove" : null
@@ -205,7 +233,7 @@ mixin section(s)
         //- TODO: add class of ipr if boilerplate
         a.self-ref(href='#' + sn)= snn + "."
         = " "
-      a.self-ref(href='#' + id)= $("name/text()", s)
+      a.self-ref(href='#' + id): +children($("name", s))
     +children(s)
 
 mixin sourcecode(e)
@@ -218,20 +246,20 @@ mixin sourcecode(e)
       +pilcrow(e)
 
 mixin t(e)
-  - var pn = $att(e, 'partNumber')
+  - var pn = $att(e, 'anchor') || $att(e, 'pn')
   p(id=pn)
     +children(e)
     +pilcrow(e)
 
 mixin table(e)
   table(id=$att(e, 'anchor'))
-    - var tn = $att(e, 'tableNumber')
+    - var tn = $att(e, 'pn')
     - var nm = $('name', e)
     caption
       a.self-ref(href="#"+tn) Table #{tn.replace(/^t-/, '')}.
       if nm
         = " "
-        a.self-ref(href="#"+$att(nm, "slugifiedName"))= nm.text()
+        a.self-ref(href="#"+$att(nm, "slugifiedName")): +children(nm)
     +children(e)
 
 mixin title(e)
@@ -241,11 +269,116 @@ mixin tt(e)
   code: +children(e)
 
 mixin ul(e)
-  - var cls = ($att(e,'spacing')=='compact')?'ulcompact':null
-  ul(class=cls): +children(e)
+  - var classes = []
+  - if ($att(e,'spacing')=='compact') { classes.push('ulcompact'); }
+  - if ($att(e,'empty')=='true') { classes.push('ulempty'); }
+  ul(class=classes): +children(e)
 
 mixin xref(e)
-  a(href='#'+$att(e,'target'))= '[' + $att(e,'target') + ']'
+  - var target = $att(e,'target')
+  - var t = e.text()
+  if t && t.trim().length > 0
+    a.xref(href='#'+target)= t
+  else
+    - var target_el = $('//*[@anchor="' + target + '"]')
+    if !target_el
+      - console.error("Invalid xref not found: " + target)
+    else
+      - var fmt = $att(e,'format')
+      case target_el.name()
+        when 'section'
+          a.xref(href='#'+target)
+            if (fmt !== 'counter') && (fmt !== 'title')
+              = 'Section '
+            if fmt == 'title'
+              = $('name', target_el).text()
+            else
+              = $att(target_el, 'pn').replace(/^s-/, '')
+        when 'figure'
+          a.xref(href='#'+target)
+            if (fmt !== 'counter') && (fmt !== 'title')
+              = 'Figure '
+            if fmt == 'title'
+              = $('name', target_el).text()
+            else
+              = $att(target_el, 'pn').replace(/^f-/, '')
+        when 'table'
+          a.xref(href='#'+target)
+            if (fmt !== 'counter') && (fmt !== 'title')
+              = 'Table '
+            if fmt == 'title'
+              = $('name', target_el).text()
+            else
+              = $att(target_el, 'pn').replace(/^t-/, '')
+        when 'reference'
+          = '['
+          a.xref(href='#'+target)
+            if fmt == 'title'
+              = $('front/title/text()', target_el)
+            else
+              = target
+          = ']'
+        default
+          - console.error("Can't render xref to <" + target_el.name() + "> without text inside the <xref> with target: " + target)
+
+mixin postal(e)
+  - var plines = $$('postalLine/text()', e)
+  if plines.length > 0
+    pre.label= plines.join('\n')
+    - var pascii = $$('postalLine/@ascii', e)
+    if pascii.length > 0
+      = " "
+      pre.ascii= pascii.join('\n')
+  else
+    .adr
+      each st in $$('street/text()', e)
+        .street-address= st
+      div
+        each city in $$('city/text()', e)
+          span.city=city
+        = ", "
+        each region in $$('region/text()', e)
+          span.region=region
+        each code in $$('code', e)
+          = " "
+          span.code
+            =code.text()
+            +ascii(code)
+      each country in $$('country/text()', e)
+        .country-name=country
+
+mixin foot_org(e)
+  .org= e.text()
+    +ascii(e)
+
+mixin foot_author(e)
+  address.vcard
+    .namerole
+      span.fn
+        = $att(e, 'fullname')
+        +ascii(e)
+      if $att(e, 'role')
+        = " ("
+        span.role= $att(e, 'role')
+        = ")"
+    +foot_org($("organization", e))
+    - var addr = $('address', e)
+    each p in $$('postal', addr)
+      +postal(p)
+    each phone in $$('phone/text()', addr)
+      div= "Phone: "
+        span.tel= phone + " "
+          span.type VOICE
+    each fax in $$('facsimile/text()', addr)
+      div= "Fax: "
+        span.tel= fax + " "
+          span.type fax
+    each email in $$('email/text()', addr)
+      div= "Email: "
+        a.email(href=email)= email
+    each uri in $$('uri/text()', addr)
+      div= "URI: "
+        a.url(href=uri)= uri
 
 doctype html
 html(lang='en')
@@ -256,9 +389,9 @@ html(lang='en')
     meta(name='description', content=v3.ws($$('front/abstract//text()')))
     meta(name='generator', content=version)
     title= $('front/title/text()')
-    style
-     include xml2rfc.css
-    //- link(rel='stylesheet', type='text/css', href='xml2rfc.css')
+    //- style
+    //-   include xml2rfc.css
+    link(rel='stylesheet', type='text/css', href='xml2rfc.css')
     link(rel='stylesheet', type='text/css', href='local.css')
   body
     +identifiers($('front'))
@@ -269,3 +402,20 @@ html(lang='en')
     +children($('front/boilerplate'))
     +children($('middle'))
     +back($('back'))
+    - var authors = $$('front/author')
+    section#author-addresses
+      h2
+        a.self-ref(href='#author-addresses')
+          = (authors.length > 1) ? "Authors' Addresses" : "Author's Address"
+      each a in authors
+        +foot_author(a)
+    - var rendered = dt.isoDateTime()
+    .rendered Rendered:
+      time(datetime=rendered)= rendered
+
+| <!-- XML SOURCE START (note: each instance of two '-' (U+002D: HYPHEN-MINUS)
+| characters changed to "&#x2d;&#x2d;") -->
+!= "<!--\n"
+!= $source.toString('utf8').replace(/--/g, "&#x2d;&#x2d;")
+!= "\n-->"
+| <!-- XML SOURCE END -->

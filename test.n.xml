@@ -1,137 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rfc ipr="trust200902" docName="draft-hildebrand-html-rfc-04" category="info" tocInclude="yes">
+<?xml version='1.0'?>
+<rfc category='info'
+     docName='draft-hildebrand-html-rfc-04'
+     ipr='trust200902'
+     tocInclude='true'
+     xmlns:xi='http://www.w3.org/2001/XInclude'>
+  <link href='https://github.com/hildjj/draft-hildebrand-html-rfc.git'
+        rel='alternate'/>
   <front>
-    <!--
-      comment in the front
-      it's got multiple lines and some <>
-      it also has some &amp; &lt; &gt;
-    -->
-    <title abbrev="HTML RFC">HyperText Markup Language Request For Comments Format</title>
-    <author initials="J." surname="Hildebrand" fullname="Joe Hildebrand" role="editor">
-      <organization>Cisco Systems, Inc.</organization>
+    <title abbrev='HTML RFC'>
+      HyperText Markup Language Request For Comments Format
+    </title>
+    <author asciiFullname='Joe Hildebrand'
+            asciiInitials='J.'
+            asciiSurname='Hildebrand'
+            fullname='ɟöe H̭ildebrand'
+            initials='ɟ.'
+            role='editor'
+            surname='H̭ildebrand'>
+      <organization ascii='Cisco Systems, Inc.'>
+        Čisco Śystems, Inc.
+      </organization>
       <address>
-        <email>jhildebr@cisco.com</email>
+        <postal>
+          <street>1 Main Street</street>
+          <street>Suite 1</street>
+          <city ascii='Denver'>ǲenver</city>
+          <region>CO</region>
+          <code ascii='80202'>８０２０２</code>
+          <country>US</country>
+        </postal>
+        <phone>+1-720-555-1212</phone>
+        <facsimile>+1-303-555-1212</facsimile>
+        <email>jhildebr@example.com</email>
+        <uri>http://www.example.com</uri>
       </address>
     </author>
-    <author initials="H." surname="Flanagan" fullname="Heather Flanagan" role="editor">
+    <author fullname='Heather Flanagan'
+            initials='H.'
+            role='editor'
+            surname='Flanagan'>
       <organization>RFC Editor</organization>
       <address>
+        <postal>
+          <postalLine>Where the</postalLine>
+          <postalLine>Streets have no name</postalLine>
+        </postal>
         <email>rse@rfc-editor.org</email>
       </address>
     </author>
+    <date day='16' month='April' year='2015'/>
     <area>gen</area>
     <workgroup>rfc-interest</workgroup>
-    <date year="2014" month="October" day="27"/>
     <keyword>html</keyword>
     <keyword>css</keyword>
     <keyword>rfc</keyword>
-    <abstract sectionNumber="s-abstract">
-      <t partNumber="p-abstract-1">This document defines the <strong>HTML format</strong> that will be rendered from the
-        canonical XML format for an RFC.  The HTML output will include a default
-        CSS to enable page layout.</t>
+    <abstract pn='s-abstract'>
+      <t pn='p-abstract-1'>
+        This document defines the <strong>HTML format</strong> that
+        will be rendered from the canonical XML format for an RFC.
+        The HTML output will include a default CSS to enable page
+        layout.
+      </t>
+      <t pn='p-abstract-2'>Abstracts can have multiple &lt;t&gt;'s</t>
+      <ul>
+        <li pn='p-abstract-3'>And</li>
+        <li pn='p-abstract-4'>Lists</li>
+      </ul>
     </abstract>
-    <note removeInRFC="yes" sectionNumber="s-note-1">
-      <name slugifiedName="n-editorial-note">Editorial Note</name>
-      <t partNumber="p-note-1-1">
+    <note pn='s-note-1' removeInRFC='true'>
+      <name slugifiedName='n-editorial-note'>Editorial Note</name>
+      <t pn='p-note-1-1'>
         Discussion of this draft takes place on the rfc-interest
-        mailing list (rfc-interest@rfc-editor.org), which has its home page at
-        <eref target="https://www.rfc-editor.org/mailman/listinfo/rfc-interest"/>.
+        mailing list (rfc-interest@rfc-editor.org), which has its home
+        page at <eref
+        target='https://www.rfc-editor.org/mailman/listinfo/rfc-interest'/>.
       </t>
     </note>
     <boilerplate>
-      <section sectionNumber="s-boilerplate-1">
-        <name slugifiedName="status-of-this-memo">Status of this Memo</name>
-        <t partNumber="p-boilerplate-1-1">This Internet-Draft is submitted in full conformance with
-the provisions of BCP 78 and BCP 79.</t>
-        <t partNumber="p-boilerplate-1-2">Internet-Drafts are working documents of the Internet Engineering Task
-Force (IETF).  Note that other groups may also distribute working
-documents as Internet-Drafts.  The list of current Internet-Drafts is
-at <eref target="http://datatracker.ietf.org/drafts/current/"/>.</t>
-        <t partNumber="p-boilerplate-1-3">Internet-Drafts are draft documents valid for a maximum of six months
-and may be updated, replaced, or obsoleted by other documents at any
-time.  It is inappropriate to use Internet-Drafts as reference
-material or to cite them other than as "work in progress."</t>
-        <t partNumber="p-boilerplate-1-4">This Internet-Draft will expire on 2015-04-27.</t>
+      <section pn='s-boilerplate-1'>
+        <name slugifiedName='status-of-this-memo'>
+          Status of this Memo
+        </name>
+        <t pn='p-boilerplate-1-1'>
+          This Internet-Draft is submitted in full conformance with
+          the provisions of BCP 78 and BCP 79.
+        </t>
+        <t pn='p-boilerplate-1-2'>
+          Internet-Drafts are working documents of the Internet
+          Engineering Task Force (IETF).  Note that other groups may
+          also distribute working documents as Internet-Drafts.  The
+          list of current Internet-Drafts is at <eref
+          target='http://datatracker.ietf.org/drafts/current/'/>.
+        </t>
+        <t pn='p-boilerplate-1-3'>
+          Internet-Drafts are draft documents valid for a maximum of
+          six months and may be updated, replaced, or obsoleted by
+          other documents at any time.  It is inappropriate to use
+          Internet-Drafts as reference material or to cite them other
+          than as "work in progress."
+        </t>
+        <t pn='p-boilerplate-1-4'>
+          This Internet-Draft will expire on 2015-10-16.
+        </t>
       </section>
-      <section sectionNumber="s-boilerplate-2">
-        <name slugifiedName="copyright-notice">Copyright Notice</name>
-        <t partNumber="p-boilerplate-2-1">Copyright ©2014 IETF Trust and the
-persons identified as the document authors.  All rights reserved.</t>
-        <t partNumber="p-boilerplate-2-2">This document is subject to BCP 78 and the IETF Trust's Legal
-Provisions Relating to <a href="http://trustee.ietf.org/license-info">IETF Documents</a>
-in effect on the date of publication of this document.  Please review
-these documents carefully, as they describe your rights and restrictions
-with respect to this document.  Code Components extracted from this
-document must include Simplified BSD License text as described in
-Section 4.e of the Trust Legal Provisions and are provided without
-warranty as described in the Simplified BSD License.</t>
+      <section pn='s-boilerplate-2'>
+        <name slugifiedName='copyright-notice'>Copyright Notice</name>
+        <t pn='p-boilerplate-2-1'>
+          Copyright ©2015 IETF Trust and the persons identified as the
+          document authors.  All rights reserved.
+        </t>
+        <t pn='p-boilerplate-2-2'>
+          This document is subject to BCP 78 and the IETF Trust's
+          Legal Provisions Relating to <eref
+          target='http://trustee.ietf.org/license-info'>IETF
+          Documents</eref> in effect on the date of publication of
+          this document.  Please review these documents carefully, as
+          they describe your rights and restrictions with respect to
+          this document.  Code Components extracted from this document
+          must include Simplified BSD License text as described in
+          Section 4.e of the Trust Legal Provisions and are provided
+          without warranty as described in the Simplified BSD License.
+        </t>
       </section>
     </boilerplate>
   </front>
   <middle>
-    <section anchor="intro" sectionNumber="s-1">
-      <name slugifiedName="n-introduction">Introduction</name>
-      <t partNumber="p-1-1">Paragraph</t>
-      <section sectionNumber="s-1.1">
-        <name slugifiedName="n-sub-section">Sub Section</name>
-        <t partNumber="p-1.1-1">sub section paragraph</t>
-        <section anchor="sub-sub" sectionNumber="s-1.1.1">
-          <name slugifiedName="n-sub-sub-section">Sub-sub Section</name>
-          <t partNumber="p-1.1.1-1">sub section paragraph</t>
-          <section anchor="sub-sub-sub" sectionNumber="s-1.1.1.1">
-            <name slugifiedName="n-sub-sub-sub-section">Sub-sub-sub Section</name>
-            <t partNumber="p-1.1.1.1-1">sub section paragraph</t>
+    <section anchor='intro' pn='s-1'>
+      <name slugifiedName='n-introduction'>Introduction</name>
+      <t pn='p-1-1'>Paragraph</t>
+      <section pn='s-1.1'>
+        <name slugifiedName='n-sub-section'>Sub Section</name>
+        <t pn='p-1.1-1'>sub section paragraph</t>
+        <section anchor='sub-sub' pn='s-1.1.1'>
+          <name slugifiedName='n-sub-sub-section'>
+            Sub-sub Section
+          </name>
+          <t pn='p-1.1.1-1'>sub section paragraph</t>
+          <section anchor='sub-sub-sub' pn='s-1.1.1.1'>
+            <name slugifiedName='n-sub-sub-sub-section'>
+              Sub-sub-sub Section
+            </name>
+            <t pn='p-1.1.1.1-1'>sub section paragraph</t>
           </section>
-          <section sectionNumber="s-1.1.1.2">
-            <name slugifiedName="n-sub-sub-sub-section-2">Sub-sub-sub Section 2</name>
-            <t partNumber="p-1.1.1.2-1">sub section paragraph</t>
-            <t partNumber="p-1.1.1.2-2">moar paragraph</t>
+          <section pn='s-1.1.1.2'>
+            <name slugifiedName='n-sub-sub-sub-section-2'>
+              Sub-sub-sub Section 2
+            </name>
+            <t pn='p-1.1.1.2-1'>sub section paragraph</t>
+            <t pn='p-1.1.1.2-2'>moar paragraph</t>
           </section>
         </section>
       </section>
-      <section anchor="sub3" sectionNumber="s-1.2">
-        <name slugifiedName="n-sub-section-3">Sub Section 3</name>
-        <blockquote cite="http://www.abrahamlincolnonline.org/lincoln/speeches/gettysburg.htm" quoteFrom="Abraham Lincoln" partNumber="p-1.2-1">
-          <t partNumber="p-1.2-2">Four score and seven years ago our fathers brought forth on this
-            continent, a new nation, conceived in Liberty, and dedicated to the
-            proposition that all men are created equal.</t>
-          <t partNumber="p-1.2-3">Now we are engaged in a great civil war, testing whether that nation,
-             or any nation so conceived and so dedicated, can long endure. We are
-             met on a great battle-field of that war. We have come to dedicate a
-             portion of that field, as a final resting place for those who here
-             gave their lives that that nation might live. It is altogether
-             fitting and proper that we <bcp14>SHOULD</bcp14> do this.</t>
-          <t partNumber="p-1.2-4">But, in a larger sense, we can not dedicate — we can not
+      <section anchor='sub3' pn='s-1.2'>
+        <name slugifiedName='n-sub-section-3'>Sub Section 3</name>
+        <blockquote cite='http://www.abrahamlincolnonline.org/lincoln/speeches/gettysburg.htm'
+                    pn='p-1.2-1'
+                    quotedFrom='Abraham Lincoln'>
+          <t pn='p-1.2-2'>
+            Four score and seven years ago our fathers brought forth
+            on this continent, a new nation, conceived in Liberty, and
+            dedicated to the proposition that all men are created
+            equal.
+          </t>
+          <t pn='p-1.2-3'>
+            Now we are engaged in a <strong>great</strong> civil war,
+            testing whether that nation, or any nation so conceived
+            and so dedicated, can long endure. We are met on a great
+            battle-field of that war. We have come to dedicate a
+            portion of that field, as a final resting place for those
+            who here gave their lives that that nation might live. It
+            is altogether fitting and proper that we
+            <bcp14>SHOULD</bcp14> do this.
+          </t>
+          <t pn='p-1.2-4'>
+            But, in a larger sense, we can not dedicate — we can not
             consecrate — we can not hallow — this ground. The brave
-            men, living and dead, who struggled here, have consecrated it, far
-            above our poor power to add or detract. The world will little note,
-            nor long remember what we say here, but it can never forget what they
-            did here. It is for us the living, rather, to be dedicated here to the
-            unfinished work which they who fought here have thus far so nobly
-            advanced. It is rather for us to be here dedicated to the great task
-            remaining before us — that from these honored dead we take
-            increased devotion to that cause for which they gave the last full
-            measure of devotion — that we here highly resolve that these
-            dead shall not have died in vain — that this nation, under
-            God, shall have a new birth of freedom — and that government
-            of the people, by the people, for the people, shall not perish from
-            the earth.</t>
+            men, living and dead, who struggled here, have consecrated
+            it, far above our poor power to add or detract. The world
+            will little note, nor long remember what we say here, but
+            it can never forget what they did here. It is for us the
+            living, rather, to be dedicated here to the unfinished
+            work which they who fought here have thus far so nobly
+            advanced. It is rather for us to be here dedicated to the
+            great task remaining before us — that from these honored
+            dead we take increased devotion to that cause for which
+            they gave the last full measure of devotion — that we here
+            highly resolve that these dead shall not have died in vain
+            — that this nation, under God, shall have a new birth of
+            freedom — and that government of the people, by the
+            people, for the people, shall not perish from the earth.
+          </t>
         </blockquote>
-        <blockquote partNumber="p-1.2-5">
+        <blockquote pn='p-1.2-5'>
           This is a shorter blockquote example
         </blockquote>
-        <aside partNumber="p-1.2-6">Aside: This is an aside, to compare and contrast</aside>
+        <aside pn='p-1.2-6'>
+          <t pn='p-1.2-7'>
+            Aside: This is an aside, to compare and contrast
+          </t>
+        </aside>
       </section>
-      <section anchor="sub4" sectionNumber="s-1.3">
-        <name slugifiedName="n-sub-section-4">Sub Section 4</name>
-        <t partNumber="p-1.3-1">sub section paragraph 4</t>
+      <section anchor='sub4' pn='s-1.3'>
+        <name slugifiedName='n-sub-section-4'>Sub Section 4</name>
+        <t pn='p-1.3-1'>sub section paragraph 4</t>
+        <t pn='p-1.3-2'>
+          This paragraph has a <cref anchor='unint'
+          source='Paul'>uninteresting <tt>comment</tt> <em>em</em>
+          <eref target='https://ietf.org/'>IETF eref</eref>
+          <strong>strong</strong> <sub>sub</sub> <sup>'sup</sup>
+          <tt>tt</tt> <xref target='top'/></cref>.
+        </t>
       </section>
     </section>
-    <section sectionNumber="s-2">
-      <name slugifiedName="n-top">Top</name>
-      <t partNumber="p-2-1">A real section</t>
-      <table anchor="THE-TABLE" tableNumber="t-1">
-        <name slugifiedName="n-i-am-the-table">I AM THE TABLE</name>
+    <section anchor='top' pn='s-2'>
+      <name slugifiedName='n-top'>
+        <tt>top</tt>
+      </name>
+      <t anchor='real' pn='p-2-1'>A real section, with an anchor</t>
+      <table anchor='THE-TABLE' pn='t-1'>
+        <name slugifiedName='n-i-am-the-table'>I AM THE TABLE</name>
         <thead>
           <tr>
             <th>H1</th>
@@ -141,7 +228,9 @@ warranty as described in the Simplified BSD License.</t>
         <tbody>
           <tr>
             <td>
-              <t partNumber="p-2-2">One is the loneliest number that you'll ever do</t>
+              <t pn='p-2-2'>
+                One is the loneliest number that you'll ever do
+              </t>
             </td>
             <td>Two can be as bad as one</td>
           </tr>
@@ -151,30 +240,129 @@ warranty as described in the Simplified BSD License.</t>
           </tr>
           <tr>
             <td>
-              <sourcecode partNumber="p-2-3">three(p)</sourcecode>
+              <sourcecode pn='p-2-3'>three(p)</sourcecode>
             </td>
             <td>
-              <t partNumber="p-2-4">4</t>
-              <t partNumber="p-2-5">5</t>
+              <t pn='p-2-4'>4</t>
+              <t pn='p-2-5'>5</t>
             </td>
           </tr>
         </tbody>
       </table>
-      <t partNumber="p-2-6">Second paragraph</t>
+      <t pn='p-2-6'>Second paragraph</t>
       <ul>
-        <li partNumber="p-2-7">List</li>
-        <li partNumber="p-2-8">unordered</li>
+        <li pn='p-2-7'>List</li>
+        <li pn='p-2-8'>
+          <tt>&lt;xref&gt;</tt> with text <xref target='unint'>Some
+          Text</xref>
+        </li>
+        <li pn='p-2-9'>
+          <t pn='p-2-10'>Multiple</t>
+          <t pn='p-2-11'>Paragraphs</t>
+        </li>
+        <li pn='p-2-12'>
+          <t pn='p-2-13'>Section</t>
+          <ul>
+            <li pn='p-2-14'>no format: <xref target='top'/></li>
+            <li pn='p-2-15'>
+              format=counter: <xref format='counter' target='top'/>
+            </li>
+            <li pn='p-2-16'>
+              format=title: <xref format='title' target='top'/>
+            </li>
+          </ul>
+        </li>
+        <li pn='p-2-17'>
+          <t pn='p-2-18'>Figure</t>
+          <ul>
+            <li pn='p-2-19'>no format: <xref target='hello'/></li>
+            <li pn='p-2-20'>
+              format=counter: <xref format='counter' target='hello'/>
+            </li>
+            <li pn='p-2-21'>
+              format=title: <xref format='title' target='hello'/>
+            </li>
+          </ul>
+        </li>
+        <li pn='p-2-22'>
+          <t pn='p-2-23'>Table</t>
+          <ul>
+            <li pn='p-2-24'>no format: <xref target='THE-TABLE'/></li>
+            <li pn='p-2-25'>
+              format=counter: <xref format='counter'
+              target='THE-TABLE'/>
+            </li>
+            <li pn='p-2-26'>
+              format=title: <xref format='title' target='THE-TABLE'/>
+            </li>
+          </ul>
+        </li>
+        <li pn='p-2-27'>
+          <t pn='p-2-28'>Reference</t>
+          <ul>
+            <li pn='p-2-29'>no format: <xref target='RFC6949'/></li>
+            <li pn='p-2-30'>
+              format=counter: <xref format='counter'
+              target='RFC6949'/>
+            </li>
+            <li pn='p-2-31'>
+              format=title: <xref format='title' target='RFC6949'/>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul empty='true'>
+        <li pn='p-2-32'>Empty: it's all empty</li>
+        <li pn='p-2-33'>I have not bullets left</li>
       </ul>
       <ol>
-        <li partNumber="p-2-9">
-          <t partNumber="p-2-10">now</t>
-          <t partNumber="p-2-11">then</t>
+        <li pn='p-2-34'>
+          <t pn='p-2-35'>now</t>
+          <t pn='p-2-36'>then</t>
         </li>
-        <li partNumber="p-2-12">ordered</li>
+        <li pn='p-2-37'>ordered</li>
       </ol>
-      <figure figureNumber="f-1">
-        <name slugifiedName="n-it-figures">It figures</name>
-        <artwork type="ascii-art" partNumber="p-2-13"><![CDATA[
+      <ol start='42' style='I'>
+        <li pn='p-2-38'>The meaning of life.</li>
+        <li pn='p-2-39'>The after-meaning of the after-life</li>
+      </ol>
+      <ol style='Requirement %c:'>
+        <li pn='p-2-40'>
+          Get up every morning with a smile on your face
+        </li>
+        <li pn='p-2-41'>Show the world all the love in your heart</li>
+      </ol>
+      <ol start='26' style='Requirement %C:'>
+        <li pn='p-2-42'>Upper case</li>
+        <li pn='p-2-43'>Above 26</li>
+      </ol>
+      <ol start='18' style='Requirement %i:'>
+        <li pn='p-2-44'>Wheels on a big rig</li>
+        <li pn='p-2-45'>
+          Exercitation nisi quis in laborum ipsum esse excepteur
+          culpa. Aliquip aliquip quis deserunt non ullamco veniam
+          cupidatat laborum cillum nisi. Nostrud aliqua ut non
+          incididunt eiusmod duis nostrud deserunt tempor consequat
+          exercitation fugiat irure. Tempor reprehenderit excepteur
+          irure exercitation ad laboris esse quis laboris mollit
+          Lorem. Voluptate nisi occaecat ea occaecat mollit esse
+          veniam quis cillum mollit ex ullamco aliqua dolor. Tempor ex
+          esse laboris nostrud nulla ipsum aliquip sint do.
+        </li>
+      </ol>
+      <artwork align='center'
+               anchor='not-actually-ee'
+               type='poetry'
+               xml:lang='en'>
+artwork does not
+     ALWAYS
+   have to bepartofafigure.
+                            --ee cummings
+      </artwork>
+      <artwork align='right'>Just a step to the right</artwork>
+      <figure pn='f-1'>
+        <name slugifiedName='n-it-figures'>It figures</name>
+        <artwork type='ascii-art'><![CDATA[
  ______________
 < hello, world >
  --------------
@@ -185,13 +373,46 @@ warranty as described in the Simplified BSD License.</t>
                 ||     ||
 ]]></artwork>
       </figure>
-      <t partNumber="p-2-14">Artwork can also be outside a figure</t>
-      <artwork type="svg" partNumber="p-2-15">
-        <svg width="100" height="100">
-          <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/>
+      <t pn='p-2-49'>Artwork can also be outside a figure</t>
+      <artwork type='svg'>
+        <svg height='100'
+             width='100'
+             xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='50'
+                  cy='50'
+                  fill='yellow'
+                  r='40'
+                  stroke='green'
+                  stroke-width='4'/>
         </svg>
       </artwork>
-      <artwork type="hex-dump" partNumber="p-2-16"><![CDATA[
+      <artwork type='svg'>
+        <svg height='100'
+             width='100'
+             xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='50'
+                  cy='50'
+                  fill='yellow'
+                  r='40'
+                  stroke='black'
+                  stroke-width='4'/>
+        </svg>
+      </artwork>
+      <artwork type='svg'>
+        <svg height='100'
+             width='100'
+             xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='50'
+                  cy='50'
+                  fill='yellow'
+                  r='40'
+                  stroke='black'
+                  stroke-width='4'/>
+        </svg>
+      </artwork>
+      <artwork src='data:image/gif;base64,R0lGODlhGAGVANUAAP///+/v797v/+/vxffvc8Xv5t7m5s7vxffeUubO3vfOUvfOQsXF1qXOzsXFvb3FvdbFQr29xb29vaW9tb2txb2tvb2tpa2ttealOpyllMWUOpyMrZyMjJyEWpyEGXOEjHOEWnOEKUKMa3Njc6VaGWNjUmtjGYRaGTpjUkJahGNKUmNKEDo6Wjo6Qjo6GRBCGWMpECEhGToQWiEZITEQMTEQCCEQCBAQMRAQECEIIQgACAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNC4xLWMwMzQgNDYuMjcyOTc2LCBTYXQgSmFuIDI3IDIwMDcgMjI6Mzc6MzcgICAgICAgICI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOnhhcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDx4YXA6Q3JlYXRvclRvb2w+QWRvYmUgRmlyZXdvcmtzIENTMzwveGFwOkNyZWF0b3JUb29sPgogICAgICAgICA8eGFwOkNyZWF0ZURhdGU+MjAwNy0wMS0wNFQyMjoxMDozMVo8L3hhcDpDcmVhdGVEYXRlPgogICAgICAgICA8eGFwOk1vZGlmeURhdGU+MjAwOS0wNC0wNlQyMToyNjoyOVo8L3hhcDpNb2RpZnlEYXRlPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj4KICAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9naWY8L2RjOmZvcm1hdD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PAA6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQBBwAAACwAAAAAGAGVAAAG/0CAcEgsGo/IpHLJbDqf0Kh0Sq1ar9isdsvter/gsHhMLpvP6LR6zW673/C4fE6v2+/4vH7P7/v/gIGCg4SFhoeIiYqLbwxmjmUSjJONEpJjDJZkEZqUnmiZlhdiDpadYJymn6uYFg+mEgZfqaYTYKESqay7XQyvtKdbmbQRDra9psACvMxWDK6ptMdauLmWFcFYpbXAzd5RpaGcERPjl1i40dYS01fpuebZ3/NGoRPJ1qkV6K6mDdiWxu27AitgQVPL6Ckc8gqfOoPtpAxb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'
+               type='logo'/>
+      <artwork type='hex-dump'><![CDATA[
 00000000  20 5f 5f 5f 5f 5f 5f 5f  5f 5f 5f 5f 5f 5f 5f 20  | ______________ |
 00000010  0a 3c 20 68 65 6c 6c 6f  2c 20 77 6f 72 6c 64 20  |.< hello, world |
 00000020  3e 0a 20 2d 2d 2d 2d 2d  2d 2d 2d 2d 2d 2d 2d 2d  |>. -------------|
@@ -205,20 +426,32 @@ warranty as described in the Simplified BSD License.</t>
 000000a0  20 20 20 20 7c 7c 20 20  20 20 20 7c 7c 0a        |    ||     ||.|
 000000ae
 ]]></artwork>
-      <section sectionNumber="s-2.1">
-        <name slugifiedName="n-foo">foo</name>
-        <t partNumber="p-2.1-1">another</t>
-        <aside partNumber="p-2.1-2">If this was an interesting section, it would have more
-          interesting things to say</aside>
+      <section pn='s-2.1'>
+        <name slugifiedName='n-foo'>foo</name>
+        <t pn='p-2.1-1'>another</t>
+        <aside pn='p-2.1-2'>
+          <t pn='p-2.1-3'>
+            If this was an interesting section, it would have more
+            interesting things to say
+          </t>
+        </aside>
         <dl>
-          <dt partNumber="p-2.1-3">Fine</dt>
+          <dt pn='p-2.1-4'>Fine</dt>
           <dd>Not fine</dd>
-          <dt partNumber="p-2.1-4">Angry</dt>
-          <dd>Sad<sub>weepy</sub></dd>
+          <dt pn='p-2.1-5'>Angry</dt>
+          <dd>Sad <sub>weepy</sub></dd>
         </dl>
-        <figure figureNumber="f-2">
-          <name slugifiedName="n-this-is-a-figure">This is a figure</name>
-          <sourcecode anchor="helloworld" type="c" partNumber="p-2.1-5"><![CDATA[
+        <dl hanging='true' spacing='compact'>
+          <dt pn='p-2.1-6'>Whee!</dt>
+          <dd>Ugh.  <em>Really</em> ugh.</dd>
+          <dt pn='p-2.1-7'>Woah!</dt>
+          <dd>What <em>ever</em>.</dd>
+        </dl>
+        <figure anchor='hello' pn='f-2'>
+          <name slugifiedName='n-this-is-a-figure'>
+            This is a figure
+          </name>
+          <sourcecode anchor='helloworld' pn='p-2.1-8' type='c'><![CDATA[
 #include <stdio.h>
 
 int main(void)
@@ -232,63 +465,95 @@ int main(void)
     </section>
   </middle>
   <back>
+    <displayreference target='RFC6949' to='RFC-reqs'/>
     <references>
-      <name slugifiedName="n-informative-references">Informative References</name>
-      <reference anchor="RFC5646" base="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml">
+      <name slugifiedName='n-informative-references'>
+        Informative References
+      </name>
+      <reference anchor='RFC5646'
+                 xml:base='http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml'>
         <front>
           <title>Tags for Identifying Languages</title>
-          <author initials="A." surname="Phillips" fullname="A. Phillips">
+          <author fullname='A. Phillips'
+                  initials='A.'
+                  surname='Phillips'>
             <organization/>
           </author>
-          <author initials="M." surname="Davis" fullname="M. Davis">
+          <author fullname='M. Davis' initials='M.' surname='Davis'>
             <organization/>
           </author>
-          <date year="2009" month="September" day="27"/>
-          <abstract sectionNumber="s-abstract">
-            <t partNumber="p-abstract-1">This document describes the structure, content, construction, and
-              semantics of language tags for use in cases where it is desirable
-              to indicate the language used in an information object.  It also
-              describes how to register values for use in language tags and the
-              creation of user-defined extensions for private interchange.  This
-              document specifies an Internet Best Current Practices for the
-              Internet Community, and requests discussion and suggestions for
-              improvements.</t>
+          <date day='16' month='September' year='2009'/>
+          <abstract>
+            <t>
+              This document describes the structure, content,
+              construction, and semantics of language tags for use in
+              cases where it is desirable to indicate the language
+              used in an information object.  It also describes how to
+              register values for use in language tags and the
+              creation of user-defined extensions for private
+              interchange.  This document specifies an Internet Best
+              Current Practices for the Internet Community, and
+              requests discussion and suggestions for improvements.
+            </t>
           </abstract>
         </front>
-        <seriesInfo name="BCP" value="47"/>
-        <seriesInfo name="RFC" value="5646"/>
-        <format type="TXT" octets="208592" target="http://www.rfc-editor.org/rfc/rfc5646.txt"/>
+        <seriesInfo name='BCP' value='47'/>
+        <seriesInfo name='RFC' value='5646'/>
+        <format octets='208592'
+                target='http://www.rfc-editor.org/rfc/rfc5646.txt'
+                type='TXT'/>
       </reference>
-      <reference anchor="RFC6949" base="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6949.xml">
+      <reference anchor='RFC6949'
+                 xml:base='http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6949.xml'>
         <front>
-          <title>RFC Series Format Requirements and Future Development</title>
-          <author initials="H." surname="Flanagan" fullname="H. Flanagan">
+          <title>
+            RFC Series Format Requirements and Future Development
+          </title>
+          <author fullname='H. Flanagan'
+                  initials='H.'
+                  surname='Flanagan'>
             <organization/>
           </author>
-          <author initials="N." surname="Brownlee" fullname="N. Brownlee">
+          <author fullname='N. Brownlee'
+                  initials='N.'
+                  surname='Brownlee'>
             <organization/>
           </author>
-          <date year="2013" month="May" day="27"/>
-          <abstract sectionNumber="s-abstract">
-            <t partNumber="p-abstract-1">This document describes the current requirements and requests for
-              enhancements for the format of the canonical version of RFCs.
-              Terms are defined to help clarify exactly which stages of document
-              production are under discussion for format changes.  The
-              requirements described in this document will determine what changes
-              will be made to RFC format.  This document updates RFC 2223.</t>
+          <date day='16' month='May' year='2013'/>
+          <abstract>
+            <t>
+              This document describes the current requirements and
+              requests for enhancements for the format of the
+              canonical version of RFCs.  Terms are defined to help
+              clarify exactly which stages of document production are
+              under discussion for format changes.  The requirements
+              described in this document will determine what changes
+              will be made to RFC format.  This document updates RFC
+              2223.
+            </t>
           </abstract>
         </front>
-        <seriesInfo name="RFC" value="6949"/>
-        <format type="TXT" octets="29181" target="http://www.rfc-editor.org/rfc/rfc6949.txt"/>
+        <seriesInfo name='RFC' value='6949'/>
+        <format octets='29181'
+                target='http://www.rfc-editor.org/rfc/rfc6949.txt'
+                type='TXT'/>
+        <annotation>
+          You <bcp14>MUST</bcp14> read this annotation.  <cref>Note:
+          This is a comment.</cref> This is something
+          <strong>relevant</strong> to RFC 6949.
+        </annotation>
+        <refcontent>I guess I'm saying something here</refcontent>
       </reference>
     </references>
-    <section sectionNumber="s-A">
-      <name slugifiedName="n-doing-things-in-appendices">Doing things in appendices</name>
-      <t partNumber="p-A-1">This is where you would put an appendix</t>
-      <section sectionNumber="s-A.1">
-        <name slugifiedName="n-sub-appendix">Sub-appendix</name>
-        <t partNumber="p-A.1-1">Have parts, too</t>
-        <t partNumber="p-A.1-2">And more parts</t>
+    <section pn='s-A'>
+      <name slugifiedName='n-doing-things-in-appendices'>
+        Doing things in appendices
+      </name>
+      <t pn='p-A-1'>This is where you would put an appendix</t>
+      <section pn='s-A.1'>
+        <name slugifiedName='n-sub-appendix'>Sub-appendix</name>
+        <t pn='p-A.1-1'>Have parts, too</t>
+        <t pn='p-A.1-2'>And more parts</t>
       </section>
     </section>
   </back>
