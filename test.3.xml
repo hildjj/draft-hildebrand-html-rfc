@@ -200,16 +200,24 @@
         </li>
       </ul>
       <ul empty='true'>
-        <li>Empty: it's all empty</li>
-        <li>I have not bullets left</li>
+        <li><iref item="Bullets" primary="true"/>Empty: it's all empty</li>
+        <li><iref item="Bullets"/>I have not bullets left</li>
       </ul>
       <ol>
-        <li><t>now</t><t>then</t></li>
+        <li><iref item="Bullets" subitem="Ordered"/><t>now</t><t>then</t></li>
         <li>ordered</li>
       </ol>
       <ol start="12" style='I' group="green">
         <li>A dozen or so.</li>
         <li>Now, with bakers. It's all about <xref target="Bibble"/>.</li>
+      </ol>
+      <ol group='green' stye='I'>
+        <li>after bakers, before meanings</li>
+        <li>there are meaningless bakers</li>
+      </ol>
+      <ol group='green' stye='I'>
+        <li>who bake</li>
+        <li>bread with meaning</li>
       </ol>
       <ol start="42" style='I' group="green">
         <li>The meaning of life.</li>
@@ -225,7 +233,17 @@
       </ol>
       <ol style='Requirement %i:' start='18'>
         <li>Wheels on a big rig</li>
-        <li>Exercitation nisi quis in laborum ipsum esse excepteur culpa. And then <xref target="whoa"/>.</li>
+        <li>Exercitation nisi quis in laborum ipsum esse excepteur culpa. And
+        then <xref target="whoa"/>.   Et pariatur anim labore pariatur qui
+        adipisicing consequat quis. Occaecat fugiat ad mollit ipsum occaecat
+        aliqua consectetur. Esse proident qui amet quis dolore consectetur
+        proident sunt ipsum exercitation veniam exercitation amet. Nostrud
+        exercitation magna officia incididunt deserunt incididunt eiusmod veniam
+        esse minim non. Mollit non ad consectetur adipisicing nisi ex consequat
+        qui proident officia laboris duis adipisicing. Velit commodo aliqua
+        occaecat consequat nostrud anim ad ut. Quis aute eu culpa dolore ut esse
+        ea est elit occaecat. In cupidatat ea ipsum est fugiat ad pariatur
+        nulla. </li>
       </ol>
       <artwork anchor='not-actually-ee' xml:lang='en' type='poetry' align='center'>
 artwork does not
@@ -267,7 +285,7 @@ artwork does not
         <artwork type="svg" src='http://localhost:8080/redbluecircle.svg' anchor='externalCircle'/>
       </figure>
       <t>Artwork can also be outside a figure. Here are two.</t>
-      <artwork type="logo" src="http://localhost:8080/ietflogotrans.gif"/>
+      <artwork type="logo" src="http://localhost:8080/ietflogotrans.gif" alt="IETF logo"/>
       <artwork type="hex-dump">
 <![CDATA[
 00000000  20 5f 5f 5f 5f 5f 5f 5f  5f 5f 5f 5f 5f 5f 5f 20  | ______________ |
@@ -378,20 +396,23 @@ int main(void)
           <cref>Note: This is a comment.</cref>
           This is something <strong>relevant</strong> to RFC 6949.
         </annotation>
-        <refcontent ascii="Note this!">Nötë thïs!</refcontent>
+        <refcontent ascii="Note this!">Nötë <em>thïs</em>!</refcontent>
       </reference>
       <referencegroup anchor="Bibble">
         <reference anchor="Bibble1" quoteTitle="false">
           <front>
             <title>Bibble protocol spec</title>
             <author initials="N." surname="One" fullname="No One"/>
+            <date year="1850"/>
           </front>
         <seriesInfo name="BibbleSpècs" asciiName= "BibbleSpecs" value="12-4444"/>
         </reference>
         <reference anchor="Bibble2">
           <front>
-            <title>Bibble use cases</title>
-            <author initials="N." surname="One" fullname="No One"/>
+            <title ascii="Bibble use cases">𝔹ibble use cases</title>
+            <author initials="Ñ." asciiInitials="N." surname="One" fullname="Ño One" asciiFullname="No One"/>
+            <author initials="Ñ." asciiInitials="N." surname="Two" fullname="Ño Two" asciiFullname="No Two"/>
+            <author initials="Ñ." asciiInitials="N." surname="Three" fullname="Ño Three" asciiFullname="No Three"/>
           </front>
         <seriesInfo name="BibbleSpècs" asciiName= "BibbleSpecs" value="12-4479"/>
         </reference>
