@@ -10,6 +10,17 @@
 <!ENTITY I-D.hoffman-xml2rfc SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.hoffman-xml2rfc.xml">
 <!ENTITY I-D.flanagan-rfc-framework SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.flanagan-rfc-framework.xml">
 ]>
+
+<!--
+
+To do:
+
+Update for <xref> and <relref> and <eref>
+
+Make the document title appear in <head><title>, <h1>, or both
+
+-->
+
 <rfc ipr="trust200902" docName="draft-hildebrand-html-rfc-06" category="info">
   <front>
     <title abbrev="HTML RFC">HyperText Markup Language Request For Comments Format</title>
