@@ -1644,10 +1644,13 @@ Internet-Draft                  HTML RFC                        May 2015
 
 9.59.  <title>
 
-   The title of the document appears in an <h1> element, and follows
-   directly after the Document Information.  The <h1> element has an id
-   attribute with value "title".
+   The title of the document appears in an <title> element in the <head>
+   element.  It also appears in an <h1> element, and follows directly
+   after the Document Information.  The <h1> element has an id attribute
+   with value "title".
 
+   <head>...<title>HyperText Markup Language Request For
+       Comments Format</title>...</head>...
    <h1 id="title">HyperText Markup Language Request For
        Comments Format</h1>
 
@@ -1671,9 +1674,6 @@ Internet-Draft                  HTML RFC                        May 2015
    containing the string "URI:" and an HTML <a> element, with "href"
    attribute set to the linked URI, CSS class of "url" [sic], and the
    contents set to the linked URI.
-
-
-
 
 
 
