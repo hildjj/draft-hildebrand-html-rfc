@@ -10,7 +10,11 @@
 <!ENTITY I-D.hoffman-xml2rfc SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.hoffman-xml2rfc.xml">
 <!ENTITY I-D.flanagan-rfc-framework SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.flanagan-rfc-framework.xml">
 ]>
-<rfc ipr="trust200902" docName="draft-hildebrand-html-rfc-05" category="info">
+<rfc ipr="trust200902" docName="draft-hildebrand-html-rfc-06" category="info">
+  <!-- NOTE:
+Paul wants to go through all of section 9, putting in xrefs to other places
+in this doc where that element is referenced, such as the header.
+-->
   <front>
     <title abbrev="HTML RFC">HyperText Markup Language Request For Comments Format</title>
     <author initials="J." surname="Hildebrand" fullname="Joe Hildebrand" role="editor">
@@ -27,11 +31,11 @@
     </author>
     <author initials="P." surname="Hoffman" fullname="Paul Hoffman">
       <organization>VPN Consortium</organization>
-  	  <address>
+      <address>
         <email>paul.hoffman@vpnc.org</email>
       </address>
     </author>
-    <date year="2015" month="May" day="6"/>
+    <date year="2015" month="June" day="9"/>
     <keyword>html</keyword>
     <keyword>css</keyword>
     <keyword>rfc</keyword>
@@ -194,7 +198,8 @@
           &lt;figure&gt; or &lt;table&gt; element will be appended with a
           space and a "pilcrow" (U+00B6: PILCROW SIGN), otherwise known as a
           "paragraph sign".  For the purposes of clarity, in this document
-          pilcrows are rendered as "&amp;para;".</t>
+          pilcrows are rendered as "&amp;para;".  The pilcrow will linked to
+          the "id" attribute on the XML entity to which it is associated.</t>
           <t>The pilcrow will normally be invisible unless the element it is
             attached to is moused over.  The pilcrow will be surrounded by a
             link that points to the element it is attached to.</t>
@@ -318,7 +323,7 @@
           </figure>
         </section>
         <section anchor="links" title="Links">
-          <t>Each <xref target='element.link'>link</xref> from the XML source is copied into
+          <t>Each <xref target='element.link' format='title'/> from the XML source is copied into
             the header.</t>
         </section>
       </section>
@@ -599,7 +604,7 @@
         <xref target='I-D.hoffman-xml2rfc'/> is rendered to HTML.
         Many of the descriptions have examples to clarify how elements will be rendered.</t>
       <section title="&lt;abstract&gt;" anchor="element.abstract">
-        <t>The abstract is rendered similarly to a <xref target='element.section'>&lt;section&gt;</xref> with anchor="abstract" and
+        <t>The abstract is rendered similarly to a <xref target='element.section' format='none'>&lt;section&gt;</xref> with anchor="abstract" and
         &lt;name&gt;Abstract&lt;/name&gt;, but without a section number.</t>
         <figure>
           <artwork><![CDATA[
@@ -1142,6 +1147,119 @@ Computer Sciences Division</pre>]]></artwork>
 <span class="region">Colorado<span>]]></artwork>
         </figure>
       </section>
+      <section title="&lt;relref&gt;" anchor="element.relref">
+        <t>This element is rendered as one or more HTML &lt;a&gt; elements
+          containing appropriate external links as their "href" attributes
+          as well as (potentially) some connective text.  All of the &lt;a&gt;
+          elements generated will have class "relref".  The contents of the
+          &lt;a&gt; element(s) are determined by the values of the
+          "derivedRemoteContent" and "displayFormat" attributes.</t>
+        <section title="displayFormat='of'" anchor="element.relref.df-of">
+          <t>The output is an &lt;a&gt; element with "href" attribute whose
+            value is the value of the "derivedLink" attribute, and whose
+            contents are the value of the "derivedRemoteContent" attribute.
+            This is followed by the word "of" (surrounded by whitespace). This
+            is followed by a second &lt;a&gt; element, surrounded by square
+            brackets, whose href attribute is the value of the "target"
+            attribute prepended with "#", and whose content is the value of
+            the "target" attribute.</t>
+          <t>For example, if Section 2.3 of RFC 7878 has the title "Protocol
+            Overview", with an input of:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;relref section="2.3" target="RFC7878" displayFormat="of"
+derivedLink="http://www.rfc-editor.org/info/rfc7878#s-2.3"
+derivedContent="Section 2.3"/&gt; for an overview.</artwork></figure>
+          </t>
+          <t>The HTML generated will be:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;a class="relref"
+href="http://www.rfc-editor.org/info/rfc7878#s-2.3"&gt;Section
+2.3&lt;/a&gt; of [&lt;a class="relref" href="#RFC7878"&gt;RFC7878&lt;/a&gt;]
+for an overview.</artwork></figure>
+          </t>
+        </section>
+        <section title="displayFormat='comma'" anchor="element.relref.df-comma">
+          <t>The output is an &lt;a&gt; element with  "href" attribute whose
+            value is the value of the "target"  attribute prepended by "#",
+            and whose content is the value of the  "target" attribute; the
+            entire element is wrapped in square brackets.  This is followed by
+            a comma (","), followed by whitespace.  This is followed by an &lt;a&gt;
+            element whose "href" attribute is the value of the "derivedLink"
+            attribute and whose content is the value of the "derivedContent"
+            attribute.</t>
+          <t>For example, if Section 2.3 of RFC 7878 has the title "Protocol
+            Overview", for an input of:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;relref section="2.3" target="RFC7878" displayFormat="comma"
+derivedLink="http://www.rfc-editor.org/info/rfc7878#s-2.3"
+derivedContent="Section 2.3"/&gt;, for an overview.</artwork></figure>
+          </t>
+          <t>The HTML generated will be:</t>
+          <t>
+<figure>
+  <artwork>
+See [&lt;a class="relref" href="#RFC7878"&gt;RFC7878&lt;/a&gt;],
+&lt;a class="relref"
+href="http://www.rfc-editor.org/info/rfc7878#s-2.3"&gt;Section
+2.3&lt;/a&gt;, for an overview.</artwork></figure>
+          </t>
+        </section>
+        <section title="displayFormat='parens'" anchor="element.relref.df-parens">
+          <t>The output is an &lt;a&gt; element with "href" attribute whose value
+            is the value of the "target" attribute prepended by "#", and whose
+            content is the value of the "target" attribute; the entire element
+            is wrapped in square brackets.  This is followed by  whitespace.
+            This is followed by an &lt;a&gt; element whose "href" attribute is
+            the value of the "derivedLink" attribute and whose content is the
+            value of the "derivedContent" attribute; the entire element is
+            wrapped in  parentheses.</t>
+          <t>For example, if Section 2.3 of RFC 7878 has the title "Protocol
+            Overview", for an input of:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;relref section="2.3" target="RFC7878" displayFormat="parens"
+derivedLink="http://www.rfc-editor.org/info/rfc7878#s-2.3"
+derivedContent="Section 2.3"/&gt; for an overview.</artwork></figure>
+          </t>
+          <t>The HTML generated will be:</t>
+          <t>
+<figure>
+  <artwork>
+See [&lt;a class="relref" href="#RFC7878"&gt;RFC7878&lt;/a&gt;]
+(&lt;a class="relref"
+href="http://www.rfc-editor.org/info/rfc7878#s-2.3"&gt;Section
+2.3&lt;/a&gt;) for an overview.</artwork></figure>
+          </t>
+        </section>
+        <section title="displayFormat='bare'" anchor="element.relref.df-bare">
+          <t>The output is an &lt;a&gt; element whose "href" attribute is
+            the value of the "derivedLink" attribute and whose content is the
+            value of the "derivedContent" attribute.</t>
+          <t>For this input:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;relref section="2.3" target="RFC7878" displayFormat="bare"
+derivedLink="http://www.rfc-editor.org/info/rfc7878#s-2.3"
+derivedContent="Section 2.3"/&gt; and ...</artwork></figure>
+          </t>
+          <t>The HTML generated will be:</t>
+          <t>
+<figure>
+  <artwork>
+See &lt;a class="relref"
+href="http://www.rfc-editor.org/info/rfc7878#s-2.3"&gt;Section
+2.3&lt;/a&gt; and ...</artwork></figure>
+          </t>
+        </section>
+      </section>
       <section title="&lt;rfc&gt;" anchor="element.rfc">
         <t>Various attributes of this element are represented in different parts of the HTML
           document.</t>
@@ -1240,9 +1358,11 @@ int main(void)
         <t>This element is directly rendered as its HTML counterpart.</t>
       </section>
       <section title="&lt;title&gt;" anchor="element.title">
-        <t>The title of the document appears in an &lt;h1&gt; element, and
-          follows directly after the Document Information.  The &lt;h1&gt; element
-          has an id attribute with value "title".</t>
+        <t>The title of the document appears in an &lt;title&gt; element in the
+           &lt;head&gt; element, as shown in <xref target="head-title"/>.</t>
+        <t>The title also appears in an &lt;h1&gt; element, and follows directly
+           after the Document Information.  The &lt;h1&gt; element has an id
+           attribute with value "title".</t>
         <figure>
           <artwork><![CDATA[
 <h1 id="title">HyperText Markup Language Request For
@@ -1278,11 +1398,25 @@ int main(void)
         <t>This element does not add any direct output to HTML.</t>
       </section>
       <section title="&lt;xref&gt;" anchor="element.xref">
-        <t>This element is rendered as an HTML &lt;a&gt; element containing
-          an appropriate local link as the "href" attribute.</t>
-        <t>NOTE: the &lt;xref&gt; element is still under heavy discussion.
-          More detail will be provided here in a subsequent version of this
-          document.</t>
+        <t>This element is rendered as an HTML &lt;a&gt; element containing an
+          appropriate local link as the "href" attribute.  The value of the
+          "href" attribute is taken from the "target" attribute,
+          prepended by "#".  The &lt;a&gt; element generated will have
+          class "xref".  The contents of the &lt;a&gt; element are
+          the value of the "derivedContent" attribute. If the "format"
+          attribute has the value "default", and the "target" attribute points
+          to a &lt;reference&gt; or &lt;referencegroup&gt; element, then
+          the generated &lt;a&gt; element is surrounded by square brackets
+          in the output.</t>
+        <figure>
+          <artwork><![CDATA[
+<a class="xref" href="#target">Table 2</a>]]></artwork>
+        </figure>
+        <t>or</t>
+        <figure>
+          <artwork><![CDATA[
+[<a class="xref" href="#RFC1234">RFC1234</a>]]]></artwork>
+        </figure>
       </section>
     </section>
     <section anchor="iana-considerations" title="IANA Considerations">
