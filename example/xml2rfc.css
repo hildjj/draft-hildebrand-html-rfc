@@ -1,0 +1,300 @@
+
+body {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  margin: 0 5% 0 5%;
+  background-color: #fff;
+  color: #000;
+}
+h1, h2, h3, h4, h5, h6 {
+  clear: left;
+}
+h4, h5, h6 {
+  font-size: 16px;
+}
+#identifiers {
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 20px;
+  background: transparent;
+  background-color: #eee;
+}
+#identifiers dt {
+  margin-top: 2px;
+  font-weight: bold;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 5.5em;
+}
+#identifiers dd {
+  margin-left: 8px;
+  margin-top: 2px;
+  float: left;
+}
+div, span {
+  position: relative;
+}
+.ascii {
+  display: none;
+  background: yellow;
+  position: absolute;
+  bottom: 0px;
+  left: -4px;
+  padding: 4px;
+}
+span:hover > .ascii {
+  display: block;
+}
+div:hover > .ascii {
+  display: block;
+}
+.reference {
+  padding-bottom: 10px;
+  float: left;
+}
+.reference dt {
+  margin-top: 8px;
+  font-weight: bold;
+  float: left;
+  text-align: right;
+  width: 6em;
+  white-space: nowrap;
+  clear: left;
+}
+.reference dd {
+  margin-top: 8px;
+  margin-left: 6.5em;
+}
+.refInstance {
+  padding-bottom: 10px;
+}
+#toc ul {
+  list-style-type: none;
+}
+section {
+  clear: both;
+}
+.bcp14 {
+  color: #666;
+  font-weight: bold;
+}
+.selfRef {
+  color: #000;
+  text-decoration: none;
+}
+.ulCompact {
+  line-height: 80%;
+}
+.ulEmpty {
+  list-style-type: none;
+}
+.olCompact {
+  line-height: 80%;
+}
+.olPercent dt {
+  float: left;
+  clear: left;
+  text-align: right;
+  margin-right: 8px;
+}
+.alignRight {
+  text-align: right;
+}
+.alignCenter {
+  text-align: center;
+}
+.dlParallel dt {
+  float: left;
+  clear: left;
+  margin-right: 8px;
+  font-weight: bold;
+}
+.dlCompact {
+  line-height: 80%;
+}
+code {
+  background-color: #eee;
+  font-family: 'Droid Serif', Monaco, monospace;
+  font-size: 90%;
+  line-height: 1.15em;
+}
+aside {
+  clear: both;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px;
+}
+blockquote {
+  background-color: #eee;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  float: left;
+  clear: both;
+}
+blockquote cite {
+  float: right;
+  clear: both;
+}
+figure blockquote {
+  margin-left: 0;
+}
+figure .code {
+  margin-left: 0;
+}
+figcaption {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media screen {
+  .code {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+a.pilcrow {
+  color: #999;
+  text-decoration: none;
+  visibility:hidden;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  user-select: none;
+  -ms-user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+aside:hover > a.pilcrow {
+  visibility: visible;
+}
+p:hover > a.pilcrow {
+  visibility: visible;
+}
+blockquote:hover > a.pilcrow {
+  visibility: visible;
+}
+div:hover > a.pilcrow {
+  visibility: visible;
+}
+li:hover > a.pilcrow {
+  visibility: visible;
+}
+pre:hover > a.pilcrow {
+  visibility: visible;
+}
+div#toc {
+  page-break-before: always;
+}
+p {
+  text-align: justify;
+  orphans: 3;
+  widows: 3;
+  line-height: 120%;
+}
+table {
+  border-collapse: collapse;
+}
+th {
+  border: solid thin;
+  text-align: center;
+  background-color: #ccc;
+}
+td {
+  border: solid thin;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.rfceditor-remove:before {
+  content: "The RFC Editor\awill remove\athis section";
+  background-color: rgba(235, 249, 105, 1);
+  float: right;
+  white-space: pre;
+  padding: 4px;
+  margin-left: 10px;
+}
+.rfcEditorRemove {
+  background-color: rgba(235, 249, 105, 0.25);
+  clear: both;
+}
+.cref {
+  background-color: rgba(235, 249, 105, 0.25);
+  padding: 4px;
+}
+.crefSource {
+  font-style: italic;
+  background-color: rgba(235, 249, 105, 1);
+}
+address.vcard {
+  padding-bottom: 20px;
+  font-style: normal;
+}
+address.vcard > div {
+  padding-bottom: 4px;
+}
+address.vcard .label {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 4px;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+address.vcard .namerole {
+  font-weight: bold;
+}
+address.vcard .type {
+  display: none;
+}
+.index ul {
+  list-style-type: none;
+}
+.index a {
+  text-decoration: none;
+}
+.indexIndex a {
+  font-weight: bold;
+}
+.indexChar a {
+  text-decoration: none;
+  font-weight: bold;
+}
+.index a.primary {
+  font-weight: bold;
+}
+.docInfo {
+  float: right;
+  clear: both;
+  font-style: italic;
+  font-size: small;
+  color: #999;
+  margin-right: 20px;
+}
+.comma {
+  margin-left: -4px;
+}
+.fullStop {
+  margin-left: -4px;
+}
+.closeParen {
+  margin-left: -4px;
+}
+.openParen {
+  margin-right: -4px;
+}
+@media print {
+  div#toc {
+    page-break-before: always;
+  }
+  pre {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  h2+*, h3+*, h4+*, h5+*, h6+* {
+    page-break-before: avoid;
+  }
+}
