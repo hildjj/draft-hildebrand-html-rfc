@@ -20,6 +20,11 @@ Abstract
    publication formats.  This document defines the HTML format that will
    be rendered for an RFC or Internet-Draft.
 
+   This document is the successor to draft-iab-html-rfc-latest, which is
+   currently in the RFC Editor's queue for publication.  This -bis draft
+   will be used for making changes based on implementation experience
+   with the earlier draft.
+
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -45,11 +50,6 @@ Copyright Notice
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
    (http://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
-
 
 
 
@@ -58,6 +58,10 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 1]
 Internet-Draft                  HTML RFC                       July 2016
 
 
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
@@ -79,7 +83,7 @@ Table of Contents
        6.3.2.  Document Title  . . . . . . . . . . . . . . . . . . .  10
        6.3.3.  Document Metadata . . . . . . . . . . . . . . . . . .  10
        6.3.4.  Link to XML source  . . . . . . . . . . . . . . . . .  10
-       6.3.5.  Link to License . . . . . . . . . . . . . . . . . . .  10
+       6.3.5.  Link to License . . . . . . . . . . . . . . . . . . .  11
        6.3.6.  Style . . . . . . . . . . . . . . . . . . . . . . . .  11
        6.3.7.  Links . . . . . . . . . . . . . . . . . . . . . . . .  11
      6.4.  Page Headers and Footers  . . . . . . . . . . . . . . . .  11
@@ -102,10 +106,6 @@ Table of Contents
      9.5.  <artwork> . . . . . . . . . . . . . . . . . . . . . . . .  18
        9.5.1.  Text Artwork  . . . . . . . . . . . . . . . . . . . .  19
        9.5.2.  SVG Artwork . . . . . . . . . . . . . . . . . . . . .  19
-       9.5.3.  Other Artwork . . . . . . . . . . . . . . . . . . . .  20
-     9.6.  <aside> . . . . . . . . . . . . . . . . . . . . . . . . .  20
-     9.7.  <author>  . . . . . . . . . . . . . . . . . . . . . . . .  20
-       9.7.1.  Authors in Document Information . . . . . . . . . . .  20
 
 
 
@@ -114,6 +114,10 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 2]
 Internet-Draft                  HTML RFC                       July 2016
 
 
+       9.5.3.  Other Artwork . . . . . . . . . . . . . . . . . . . .  20
+     9.6.  <aside> . . . . . . . . . . . . . . . . . . . . . . . . .  20
+     9.7.  <author>  . . . . . . . . . . . . . . . . . . . . . . . .  20
+       9.7.1.  Authors in Document Information . . . . . . . . . . .  20
        9.7.2.  Authors of this document  . . . . . . . . . . . . . .  21
        9.7.3.  Authors of references . . . . . . . . . . . . . . . .  22
      9.8.  <back>  . . . . . . . . . . . . . . . . . . . . . . . . .  23
@@ -158,10 +162,6 @@ Internet-Draft                  HTML RFC                       July 2016
        9.44.1.  displayFormat='of' . . . . . . . . . . . . . . . . .  33
        9.44.2.  displayFormat='comma'  . . . . . . . . . . . . . . .  34
        9.44.3.  displayFormat='parens' . . . . . . . . . . . . . . .  34
-       9.44.4.  displayFormat='bare' . . . . . . . . . . . . . . . .  35
-     9.45. <rfc> . . . . . . . . . . . . . . . . . . . . . . . . . .  35
-     9.46. <section> . . . . . . . . . . . . . . . . . . . . . . . .  35
-     9.47. <seriesInfo>  . . . . . . . . . . . . . . . . . . . . . .  36
 
 
 
@@ -170,6 +170,10 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 3]
 Internet-Draft                  HTML RFC                       July 2016
 
 
+       9.44.4.  displayFormat='bare' . . . . . . . . . . . . . . . .  35
+     9.45. <rfc> . . . . . . . . . . . . . . . . . . . . . . . . . .  35
+     9.46. <section> . . . . . . . . . . . . . . . . . . . . . . . .  35
+     9.47. <seriesInfo>  . . . . . . . . . . . . . . . . . . . . . .  36
      9.48. <sourcecode>  . . . . . . . . . . . . . . . . . . . . . .  36
      9.49. <street>  . . . . . . . . . . . . . . . . . . . . . . . .  36
      9.50. <strong>  . . . . . . . . . . . . . . . . . . . . . . . .  36
@@ -214,10 +218,6 @@ Internet-Draft                  HTML RFC                       July 2016
    The details (particularly any vocabularies) described in this
    document are expected to change based on experience gained in
    implementing the RFC production center's toolset.  Revised documents
-   will be published capturing those changes as the toolset is
-   completed.  Other implementers must not expect those changes to
-   remain backwards-compatible with the details described this document.
-
 
 
 
@@ -225,6 +225,10 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 4]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   will be published capturing those changes as the toolset is
+   completed.  Other implementers must not expect those changes to
+   remain backwards-compatible with the details described this document.
 
 2.  Requirements for the HTML Format
 
@@ -271,10 +275,6 @@ Internet-Draft                  HTML RFC                       July 2016
       provides post-publication metadata or pointers if warranted.  All
       such text will be clearly marked as additional.
 
-   o  The HTML document will allow easy local override of the default
-      CSS formatting.  This will allow users who have a different visual
-      style that they prefer to make RFCs display with that style
-
 
 
 Hildebrand & Hoffman    Expires January 18, 2017                [Page 5]
@@ -282,6 +282,9 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 5]
 Internet-Draft                  HTML RFC                       July 2016
 
 
+   o  The HTML document will allow easy local override of the default
+      CSS formatting.  This will allow users who have a different visual
+      style that they prefer to make RFCs display with that style
       without having to alter the contents of the HTML document.  This
       might also be valuable for allowing people with specific
       accessibility needs to use a customized CSS.
@@ -327,9 +330,6 @@ Internet-Draft                  HTML RFC                       July 2016
 
       *  People who use devices with small screens, such as cell phones
 
-   o  Specific instances where goals for accessibility are important in
-      the design choices of the format have been called out in the text.
-
 
 
 
@@ -337,6 +337,9 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 6]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   o  Specific instances where goals for accessibility are important in
+      the design choices of the format have been called out in the text.
 
    o  NOTE: designing for these consumers does not preclude the use of
       features they cannot use, but does require that key semantic data
@@ -381,9 +384,6 @@ Internet-Draft                  HTML RFC                       July 2016
       rules are deemed best by the developers of the HTML production
       tools.
 
-   NOTE: none of these rules affect the rendered output of the HTML, but
-   are intended to increase the chance that text comparison tools (e.g.,
-   "diff") that operate on the HTML output easier to write.
 
 
 
@@ -393,6 +393,10 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 7]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   NOTE: none of these rules affect the rendered output of the HTML, but
+   are intended to increase the chance that text comparison tools (e.g.,
+   "diff") that operate on the HTML output easier to write.
 
 5.  Common Items
 
@@ -434,13 +438,9 @@ Internet-Draft                  HTML RFC                       July 2016
    with a pilcrow if they contain one or more child elements that are
    marked with a pilcrow.  For example:
 
-   <blockquote id="s-1.2-1">
-     <p id="s-1.2-2">Four score and seven years ago our fathers brought
-       forth on this continent, a new nation, conceived in Liberty, and
-       dedicated to the proposition that all men are created equal.
-       <a href="#s-1.2-2" class="pilcrow">&para;</a></p>
-     <!-- NO pilcrow here -->
-   </blockquote>
+
+
+
 
 
 
@@ -449,6 +449,14 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 8]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   <blockquote id="s-1.2-1">
+     <p id="s-1.2-2">Four score and seven years ago our fathers brought
+       forth on this continent, a new nation, conceived in Liberty, and
+       dedicated to the proposition that all men are created equal.
+       <a href="#s-1.2-2" class="pilcrow">&para;</a></p>
+     <!-- NO pilcrow here -->
+   </blockquote>
 
 6.  Front Matter
 
@@ -490,14 +498,6 @@ Internet-Draft                  HTML RFC                       July 2016
    In order to be correctly processed by browsers that load the HTML
    using a mechanism that does not provide a valid content-type or
    charset (such as from a local file system using a "file:" URL), the
-   HTML <head> element contains a <meta> element, with charset attribute
-   with value "utf-8":
-
-   <meta charset="utf-8">
-
-
-
-
 
 
 
@@ -505,6 +505,11 @@ Hildebrand & Hoffman    Expires January 18, 2017                [Page 9]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   HTML <head> element contains a <meta> element, with charset attribute
+   with value "utf-8":
+
+   <meta charset="utf-8">
 
 6.3.2.  Document Title
 
@@ -546,13 +551,8 @@ Internet-Draft                  HTML RFC                       July 2016
 
    <link rel="alternate" type="application/rfc+xml" href="source.xml">
 
-6.3.5.  Link to License
 
-   The <head> element contains a <link> tag, with "rel" attribute of
-   "license" and "href" attribute pointing to the an appropriate
-   copyright license for the document.
 
-   <link rel="license" href="https://www.rfc-editor.org/copyright/">
 
 
 
@@ -561,6 +561,14 @@ Hildebrand & Hoffman    Expires January 18, 2017               [Page 10]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+6.3.5.  Link to License
+
+   The <head> element contains a <link> tag, with "rel" attribute of
+   "license" and "href" attribute pointing to the an appropriate
+   copyright license for the document.
+
+   <link rel="license" href="https://www.rfc-editor.org/copyright/">
 
 6.3.6.  Style
 
@@ -602,14 +610,6 @@ Internet-Draft                  HTML RFC                       July 2016
 
    The <thead> corresponds to the top of the page, the <tfoot> to the
    bottom.  The string "[Page]" can be used as a placeholder for the
-   page number.  In practice, this must always be in the <tfoot>'s right
-   <td>, and no control of the page number formatting is implied.
-
-
-
-
-
-
 
 
 
@@ -617,6 +617,9 @@ Hildebrand & Hoffman    Expires January 18, 2017               [Page 11]
 
 Internet-Draft                  HTML RFC                       July 2016
 
+
+   page number.  In practice, this must always be in the <tfoot>'s right
+   <td>, and no control of the page number formatting is implied.
 
    <table class="ears">
      <thead>
@@ -642,9 +645,6 @@ Internet-Draft                  HTML RFC                       July 2016
    with id="identifiers".  The defined terms in the definition list are
    "Workgroup:", "Series:", "Status:", "Published:", and "Author:" or
    "Authors:" (as appropriate).  For example:
-
-
-
 
 
 
