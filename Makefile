@@ -1,4 +1,4 @@
-DRAFT=draft-iab-html-rfc
+DRAFT=draft-iab-html-rfc-bis
 BRANCH := $(shell git symbolic-ref --short HEAD)
 DNAME := $(shell xmllint --xpath "string(/rfc/@docName)" $(DRAFT).xml)
 
