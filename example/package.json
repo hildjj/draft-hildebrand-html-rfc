@@ -7,12 +7,12 @@
     "example": "examples"
   },
   "dependencies": {
-    "bluebird": "3.3",
-    "express": "4.13",
+    "bluebird": "3.4",
+    "express": "4.14",
     "pug": "2.0.0-beta6",
     "libxmljs": "0.18",
     "resolve": "1.1",
-    "rfc-preptool": "latest",
+    "rfc-preptool": ">=1.1",
     "romanize": "0.1",
     "through2": "2.0",
     "vinyl-fs": "2.4",
