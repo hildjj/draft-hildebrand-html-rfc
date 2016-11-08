@@ -30,7 +30,7 @@ mixin nodes(list, extra)
         != "<!--" + c.text() + "-->"
       when 'element'
         - var nm = c.name()
-        if jade_mixins[nm]
+        if pug_mixins[nm]
           +#{nm}(c, extra)
         else if c.namespace()
           +elem(c, extra)

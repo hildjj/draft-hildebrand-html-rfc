@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
+// anyone who care about this one day, switch to any build tool.
+
 const bb            = require('bluebird'),
       child_process = require('child_process'),
       fs            = bb.promisifyAll(require('fs')),
       preptool      = require('rfc-preptool'),
       t2            = require('through2'),
       vfs           = require('vinyl-fs'),
-      xmljade       = require('xmljade')
+      xmlpug        = require('xmlpug')
 
 // Start up a separate process for an HTTP server, so that the synchronus
 // URL fetching that will be in this process won't deadlock.
@@ -70,7 +72,7 @@ prep = t2p((f) => {
 })
 
 toHtml = t2p((f) => {
-  return xmljade.transformFile("v3tohtml.jade", f.contents, {
+  return xmlpug.transformFile("v3tohtml.pug", f.contents, {
     pretty: true,
     html: true,
     "dentin-doublequote": true,
@@ -92,7 +94,7 @@ const exec = bb.promisify(child_process.exec)
 toPDF = t2p((f) => {
   return exec(`prince --attach=out/${f.stem}.xml "${f.path}" -o -`, {
     encoding: 'Buffer',
-    maxBuffer: 500*1024
+    maxBuffer: 2*1024*1024 // out/toc.3.pdf max size
   })
   .then((data) => {
     f.contents = data
@@ -160,7 +162,7 @@ server.start()
     if (/\.xml$/.test(file)) {
       xform([file])
     }
-    if (/\.jade$/.test(file)) {
+    if (/\.pug$/.test(file)) {
       xform(inp)
     }
   })

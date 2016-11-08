@@ -28,7 +28,7 @@ mixin nodes(list)
           != "<!--" + c.text() + "-->"
       when 'element'
         - var nm = c.name()
-        if jade_mixins[nm] != null
+        if pug_mixins[nm] != null
           +#{nm}(c)
         else
           +elem(c, opts)

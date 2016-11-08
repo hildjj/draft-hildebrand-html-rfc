@@ -9,14 +9,14 @@
   "dependencies": {
     "bluebird": "3.3",
     "express": "4.13",
-    "jade": "1.11",
+    "pug": "2.0.0-beta6",
     "libxmljs": "0.18",
     "resolve": "1.1",
     "rfc-preptool": "latest",
     "romanize": "0.1",
     "through2": "2.0",
     "vinyl-fs": "2.4",
-    "xmljade": "latest"
+    "xmlpug": "*"
   },
   "devDependencies": {},
   "scripts": {
